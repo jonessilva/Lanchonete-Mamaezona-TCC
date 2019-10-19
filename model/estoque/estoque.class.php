@@ -1,4 +1,5 @@
 <?php
+require_once "estoque.PDO.php";
 $bd = new Table_Estoque();
 class Estoque
 {
@@ -61,7 +62,7 @@ class Estoque
     final function cadastroCliente($nome, $situacao, $descricao, $tipo)
     {
         global $bd;
-        $this->dadosCliente($nome, $situacao, $descricao, $tipo);
-        $bd->insertCliente($this);
+        $this->dadosEstoque($nome, $situacao, $descricao, $tipo);
+        $bd->insertEstoque($this);
     }
 }
