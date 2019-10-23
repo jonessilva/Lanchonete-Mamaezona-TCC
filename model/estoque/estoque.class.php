@@ -1,5 +1,5 @@
 <?php
-require_once "estoque.PDO.php";
+require_once "../../model/estoque/estoque.PDO.php";
 $bd = new Table_Estoque();
 class Estoque
 {
@@ -9,25 +9,55 @@ class Estoque
     private $quantia;
     private $quantia_min;
     //Setters
-    function setNome($n)
+    function setNome($nm)
     {
-        $this->nome = $n;
+        $this->nome = $nm;
+        echo "$this->nome<br>
+        $this->marca<br>
+        $this->preco<br>
+        $this->quantia<br>
+        $this->quantia_min<br><br>";
     }
-    function setMarca($m)
+
+    function setMarca($marca)
     {
-        $this->marca = $m;
+        $this->marca = $marca;
+        
+        echo "$this->nome<br>
+        $this->marca<br>
+        $this->preco<br>
+        $this->quantia<br>
+        $this->quantia_min<br><br>";
     }
-    function setPreco($p)
+    function setPreco($preco)
     {
-        $this->preco = $p;
+        $this->preco = $preco;
+        
+        echo "$this->nome<br>
+        $this->marca<br>
+        $this->preco<br>
+        $this->quantia<br>
+        $this->quantia_min<br><br>";
     }
-    function setQuantia($q)
+    function setQuantia($quantia)
     {
-        $this->quantia = $q;
+        $this->quantia = $quantia;
+        
+        echo "$this->nome<br>
+        $this->marca<br>
+        $this->preco<br>
+        $this->quantia<br>
+        $this->quantia_min<br><br>";   
     }
-    function setQuantia_min($qm)
+    function setQuantia_min($quantia_min)
     {
-        $this->nome = $qm;
+        $this->quantia_min = $quantia_min;
+        
+        echo "$this->nome<br>
+        $this->marca<br>
+        $this->preco<br>
+        $this->quantia<br>
+        $this->quantia_min<br><br>";
     }
     // Getters
     function getNome()
@@ -51,18 +81,18 @@ class Estoque
         return $this->quantia_min;
     }
     //-------------------------------------------------------------------------------------------------------
-    private function dadosEstoque($nome, $marca, $preco, $quantia, $quantia_min)
+    private function dadosEstoque($_nome, $marca, $preco, $quantia, $quantia_min)
     {
-        $this->setNome($nome);
+        $this->setNome($_nome);
         $this->setMarca($marca);
         $this->setPreco($preco);
         $this->setQuantia($quantia);
         $this->setQuantia_min($quantia_min);
     }
-    final function cadastroCliente($nome, $situacao, $descricao, $tipo)
+    final function cadastroEstoque($nome_, $marca, $preco, $quantia, $quantia_min)
     {
         global $bd;
-        $this->dadosEstoque($nome, $situacao, $descricao, $tipo);
+        $this->dadosEstoque($nome_, $marca, $preco, $quantia, $quantia_min);
         $bd->insertEstoque($this);
     }
 }

@@ -119,8 +119,8 @@ class Table_Cliente extends Banco implements iTable_Cliente
         $dados = $sql->fetchAll();
         $i = 0;
         echo "
-        <table class='table table-bordered table-striped text-center container'>
-            <tr class='thead-dark'>
+        <table>
+            <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Situação</th>

@@ -1,9 +1,18 @@
 <?php
+require_once "../../model/estoque/estoque.class.php";
 
-$nome_produto   = $_POST["nome_produto"];
-$marca          = $_POST["marca"];
-$preco          = $_POST["preco"];
-$quantia        = $_POST["quantia"];
-$quantia_minima = $_POST["quantia_minima"];
 
+$estoque = new Estoque();
+
+$nome_produto   = $_POST['nome_produto'];
+$marca          = $_POST['marca'];
+$preco          = $_POST['preco'];
+$quantia        = $_POST['quantia'];
+$quantia_minima = $_POST['quantia_minima'];
+
+$estoque->cadastroEstoque($nome_produto, $marca, $preco, $quantia, $quantia_minima);
+
+echo "<pre>";
+var_dump($estoque);
+echo "</pre> <br>";
 echo "$nome_produto---$marca---$preco---$quantia---$quantia_minima";
