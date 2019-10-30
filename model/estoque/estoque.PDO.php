@@ -48,4 +48,14 @@ class Table_Estoque extends Banco
         echo "</table>";
         $bd->desconectar();
     }
+    final function deleteEstoque($id)
+    {
+        global $pdo;
+        $bd = new Table_Estoque();
+        $bd->conectar();
+        $sql = $pdo->prepare('UPDATE `Estoque` SET `status_estoque`=? WHERE id_estoque=?');
+        $sql->execute(array(0,$id));
+        $bd->desconectar();
+    }
 }
+
